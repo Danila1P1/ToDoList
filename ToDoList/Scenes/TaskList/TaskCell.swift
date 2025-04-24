@@ -10,7 +10,6 @@ import UIKit
 // MARK: - TaskCellDeleate
 
 protocol TaskCellDelegate: AnyObject {
-
     func didToggleComplete(for task: Task)
 }
 

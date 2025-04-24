@@ -7,11 +7,27 @@
 
 import UIKit
 
-public final class TaskListVC: UIViewController {
+protocol TaskListVCDeps: TaskCreateEditVCDeps {
+    var taskRepository: ITaskRepository { get }
+}
+
+final class TaskListVC: UIViewController {
+
+    // MARK: - Init
+
+    init(deps: TaskListVCDeps) {
+        self.deps = deps
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - VC Lifecycle
 
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
@@ -21,13 +37,13 @@ public final class TaskListVC: UIViewController {
         configureSpeechManagerCallbacks()
     }
 
-    public override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
-    public override func viewWillDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
@@ -45,6 +61,8 @@ public final class TaskListVC: UIViewController {
     private var allTasks: [Task] = []
     private var filteredTasks: [Task] = []
     private var searchWorkItem: DispatchWorkItem?
+
+    private let deps: TaskListVCDeps
 }
 
 // MARK: - Private Nested Types
@@ -146,7 +164,7 @@ private extension TaskListVC {
     // MARK: - Data
 
     func loadTasks() {
-        TaskRepository().loadTasks { [weak self] tasks in
+        deps.taskRepository.loadTasks { [weak self] tasks in
             let sorted = tasks.sorted { $0.createdAt > $1.createdAt }
             self?.allTasks = sorted
             self?.applySearch(query: self?.searchBar.text)
@@ -155,7 +173,7 @@ private extension TaskListVC {
 
     func applySearch(query: String?) {
         if let text = query?.trimmingCharacters(in: .whitespacesAndNewlines), !text.isEmpty {
-            TaskRepository().searchTasks(text: text) { [weak self] tasks in
+            deps.taskRepository.searchTasks(text: text) { [weak self] tasks in
                 self?.filteredTasks = tasks
                 self?.bottomBar.taskCountLabel.text = self?.tasksCountText(tasks.count)
                 self?.emptyStateLabel.isHidden = !tasks.isEmpty
@@ -203,8 +221,7 @@ private extension TaskListVC {
     }
 
     func openTaskCreateEditVC(_ task: Task? = nil) {
-        let vc = TaskCreateEditVC(taskToEdit: task)
-        vc.delegate = self
+        let vc = TaskCreateEditVC(taskToEdit: task, delegate: self, coreDataManager: deps.coreDataManager, dispatchQueueWrapper: deps.dispatchQueueWrapper)
         navigationController?.pushViewController(vc, animated: true)
 
     }
@@ -216,14 +233,10 @@ private extension TaskListVC {
     }
 
     func toggleTaskCompletion(_ task: Task) {
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            var updated = task
-            updated.isCompleted.toggle()
-            CoreDataManager.shared.update(updated)
-
-            DispatchQueue.main.async {
-                self?.loadTasks()
-            }
+        var updated = task
+        updated.isCompleted.toggle()
+        deps.coreDataManager.update(updated) { [weak self] in
+            self?.loadTasks()
         }
     }
 
@@ -249,11 +262,11 @@ private extension TaskListVC {
 
 extension TaskListVC: UITableViewDataSource {
 
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         filteredTasks.count
     }
 
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TaskCell.reuseId, for: indexPath) as? TaskCell else {
             return UITableViewCell()
         }
@@ -269,27 +282,28 @@ extension TaskListVC: UITableViewDataSource {
 
 extension TaskListVC: UITableViewDelegate {
 
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let task = filteredTasks[indexPath.row]
         openTaskCreateEditVC(task)
     }
 
-    public func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         let task = filteredTasks[indexPath.row]
 
-        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { [weak self] _ in
             let actions = [
                 UIAction(title: Strings.contextMenuEdit, image: UIImage(systemName: "pencil")) { _ in
-                    self.openTaskCreateEditVC(task)
+                    self?.openTaskCreateEditVC(task)
                 },
                 UIAction(title: Strings.contextMenuShare, image: UIImage(systemName: "square.and.arrow.up")) { _ in
                     let shareText = "\(task.title)\n\(task.descriptionText)"
                     let activityVC = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
-                    self.present(activityVC, animated: true)
+                    self?.present(activityVC, animated: true)
                 },
                 UIAction(title: Strings.contextMenuDelete, image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
-                    CoreDataManager.shared.delete(task)
-                    self.loadTasks()
+                    self?.deps.coreDataManager.delete(task) {
+                        self?.loadTasks()
+                    }
                 }
             ]
 
@@ -311,7 +325,7 @@ extension TaskListVC: TaskCellDelegate {
 
 extension TaskListVC: UISearchBarDelegate {
 
-    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchWorkItem?.cancel()
 
         let workItem = DispatchWorkItem { [weak self] in
@@ -322,7 +336,7 @@ extension TaskListVC: UISearchBarDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + Constants.searchUpdateDelay, execute: workItem)
     }
 
-    public func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
         micTapped()
     }
 }
