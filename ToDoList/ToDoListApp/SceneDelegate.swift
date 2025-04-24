@@ -17,10 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
         let navController = UINavigationController()
-        let viewController = ViewController()
+        let viewController = TaskListVC()
 
         navController.viewControllers = [viewController]
         window.rootViewController = navController
+        window.overrideUserInterfaceStyle = .dark
         self.window = window
         window.makeKeyAndVisible()
     }
@@ -53,7 +54,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
 

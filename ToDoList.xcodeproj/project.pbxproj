@@ -9,12 +9,9 @@
 /* Begin PBXBuildFile section */
 		E3DCA1C42DB5347900893221 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA1C32DB5347900893221 /* AppDelegate.swift */; };
 		E3DCA1C62DB5347900893221 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA1C52DB5347900893221 /* SceneDelegate.swift */; };
-		E3DCA1C82DB5347900893221 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA1C72DB5347900893221 /* ViewController.swift */; };
+		E3DCA1C82DB5347900893221 /* TaskListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA1C72DB5347900893221 /* TaskListVC.swift */; };
 		E3DCA1CE2DB5347900893221 /* ToDoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA1CC2DB5347900893221 /* ToDoList.xcdatamodeld */; };
 		E3DCA1D02DB5347D00893221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3DCA1CF2DB5347D00893221 /* Assets.xcassets */; };
-		E3DCA1DE2DB5347D00893221 /* ToDoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA1DD2DB5347D00893221 /* ToDoListTests.swift */; };
-		E3DCA1E82DB5347D00893221 /* ToDoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA1E72DB5347D00893221 /* ToDoListUITests.swift */; };
-		E3DCA1EA2DB5347D00893221 /* ToDoListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA1E92DB5347D00893221 /* ToDoListUITestsLaunchTests.swift */; };
 		E3DCA2052DB540A200893221 /* TaskEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2032DB540A200893221 /* TaskEntity+CoreDataClass.swift */; };
 		E3DCA2062DB540A200893221 /* TaskEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2042DB540A200893221 /* TaskEntity+CoreDataProperties.swift */; };
 		E3DCA2082DB5415800893221 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2072DB5415800893221 /* CoreDataManager.swift */; };
@@ -22,6 +19,21 @@
 		E3DCA20C2DB544EC00893221 /* TaskMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA20B2DB544EC00893221 /* TaskMapper.swift */; };
 		E3DCA20E2DB546EE00893221 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA20D2DB546EE00893221 /* NetworkService.swift */; };
 		E3DCA2102DB5495300893221 /* TaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA20F2DB5495300893221 /* TaskRepository.swift */; };
+		E3DCA2122DB62B3400893221 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2112DB62B3400893221 /* TaskCell.swift */; };
+		E3DCA2152DB6383200893221 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2142DB6383200893221 /* Icons.swift */; };
+		E3DCA2192DB6D3C500893221 /* TaskListBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2182DB6D3C500893221 /* TaskListBottomBar.swift */; };
+		E3DCA2252DB7F21400893221 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2242DB7F21400893221 /* Strings.swift */; };
+		E3DCA2292DB8C86800893221 /* TaskCreateEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2282DB8C86800893221 /* TaskCreateEditVC.swift */; };
+		E3DCA22B2DB8F72A00893221 /* TaskDetailTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA22A2DB8F72A00893221 /* TaskDetailTextView.swift */; };
+		E3DCA22D2DB912DA00893221 /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA22C2DB912DA00893221 /* SpeechManager.swift */; };
+		E3DCA25B2DBA487400893221 /* ToDoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2582DBA487400893221 /* ToDoListUITests.swift */; };
+		E3DCA25C2DBA487400893221 /* ToDoListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2592DBA487400893221 /* ToDoListUITestsLaunchTests.swift */; };
+		E3DCA25E2DBA4AC600893221 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA25D2DBA4AC600893221 /* MockNetworkService.swift */; };
+		E3DCA2602DBA514600893221 /* TaskModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA25F2DBA514600893221 /* TaskModelTests.swift */; };
+		E3DCA2622DBA516600893221 /* MockCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2612DBA516600893221 /* MockCoreDataManager.swift */; };
+		E3DCA2642DBA51AB00893221 /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2632DBA51AB00893221 /* CoreDataManagerTests.swift */; };
+		E3DCA2662DBA51E600893221 /* TaskRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2652DBA51E600893221 /* TaskRepositoryTests.swift */; };
+		E3DCA2682DBA522A00893221 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2672DBA522A00893221 /* NetworkServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,15 +57,12 @@
 		E3DCA1C02DB5347900893221 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3DCA1C32DB5347900893221 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3DCA1C52DB5347900893221 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E3DCA1C72DB5347900893221 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E3DCA1C72DB5347900893221 /* TaskListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListVC.swift; sourceTree = "<group>"; };
 		E3DCA1CD2DB5347900893221 /* ToDoList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoList.xcdatamodel; sourceTree = "<group>"; };
 		E3DCA1CF2DB5347D00893221 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3DCA1D42DB5347D00893221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3DCA1D92DB5347D00893221 /* ToDoListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E3DCA1DD2DB5347D00893221 /* ToDoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListTests.swift; sourceTree = "<group>"; };
 		E3DCA1E32DB5347D00893221 /* ToDoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E3DCA1E72DB5347D00893221 /* ToDoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListUITests.swift; sourceTree = "<group>"; };
-		E3DCA1E92DB5347D00893221 /* ToDoListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E3DCA2032DB540A200893221 /* TaskEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E3DCA2042DB540A200893221 /* TaskEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E3DCA2072DB5415800893221 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -61,6 +70,21 @@
 		E3DCA20B2DB544EC00893221 /* TaskMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMapper.swift; sourceTree = "<group>"; };
 		E3DCA20D2DB546EE00893221 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E3DCA20F2DB5495300893221 /* TaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepository.swift; sourceTree = "<group>"; };
+		E3DCA2112DB62B3400893221 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		E3DCA2142DB6383200893221 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		E3DCA2182DB6D3C500893221 /* TaskListBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListBottomBar.swift; sourceTree = "<group>"; };
+		E3DCA2242DB7F21400893221 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		E3DCA2282DB8C86800893221 /* TaskCreateEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCreateEditVC.swift; sourceTree = "<group>"; };
+		E3DCA22A2DB8F72A00893221 /* TaskDetailTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailTextView.swift; sourceTree = "<group>"; };
+		E3DCA22C2DB912DA00893221 /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
+		E3DCA2582DBA487400893221 /* ToDoListUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListUITests.swift; sourceTree = "<group>"; };
+		E3DCA2592DBA487400893221 /* ToDoListUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E3DCA25D2DBA4AC600893221 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		E3DCA25F2DBA514600893221 /* TaskModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModelTests.swift; sourceTree = "<group>"; };
+		E3DCA2612DBA516600893221 /* MockCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataManager.swift; sourceTree = "<group>"; };
+		E3DCA2632DBA51AB00893221 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
+		E3DCA2652DBA51E600893221 /* TaskRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepositoryTests.swift; sourceTree = "<group>"; };
+		E3DCA2672DBA522A00893221 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,9 +115,9 @@
 		E3DCA1B72DB5347900893221 = {
 			isa = PBXGroup;
 			children = (
-				E3DCA1C22DB5347900893221 /* ToDoList */,
+				E3DCA25A2DBA487400893221 /* ToDoListUITests */,
 				E3DCA1DC2DB5347D00893221 /* ToDoListTests */,
-				E3DCA1E62DB5347D00893221 /* ToDoListUITests */,
+				E3DCA1C22DB5347900893221 /* ToDoList */,
 				E3DCA1C12DB5347900893221 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -113,15 +137,13 @@
 			children = (
 				E3DCA1D42DB5347D00893221 /* Info.plist */,
 				E3DCA1CC2DB5347900893221 /* ToDoList.xcdatamodeld */,
-				E3DCA2012DB53B6400893221 /* Resources */,
-				E3DCA2002DB53B3200893221 /* Utils */,
-				E3DCA1FF2DB53B2700893221 /* Extensions */,
-				E3DCA1FB2DB53B0500893221 /* Scenes */,
-				E3DCA1FA2DB53AF600893221 /* Repositories */,
-				E3DCA1F92DB53AE900893221 /* Network */,
-				E3DCA1F82DB53ADF00893221 /* Models */,
-				E3DCA1F72DB53AD500893221 /* Core */,
-				E3DCA1F62DB53ACB00893221 /* App */,
+				E3DCA2012DB53B6400893221 /* ToDoListResources */,
+				E3DCA1FB2DB53B0500893221 /* ToDoListScenes */,
+				E3DCA1FA2DB53AF600893221 /* ToDoListRepositories */,
+				E3DCA1F92DB53AE900893221 /* ToDoListNetwork */,
+				E3DCA1F82DB53ADF00893221 /* ToDoListModels */,
+				E3DCA1F72DB53AD500893221 /* ToDoListCoreData */,
+				E3DCA1F62DB53ACB00893221 /* ToDoListApp */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -129,39 +151,32 @@
 		E3DCA1DC2DB5347D00893221 /* ToDoListTests */ = {
 			isa = PBXGroup;
 			children = (
-				E3DCA1DD2DB5347D00893221 /* ToDoListTests.swift */,
+				E3DCA2462DBA40E100893221 /* ToDoListNetworkService */,
+				E3DCA2452DBA40D100893221 /* ToDoListRepository */,
+				E3DCA2442DBA40C900893221 /* ToDoListCoreData */,
+				E3DCA2432DBA40B600893221 /* ToDoListModels */,
 			);
 			path = ToDoListTests;
 			sourceTree = "<group>";
 		};
-		E3DCA1E62DB5347D00893221 /* ToDoListUITests */ = {
-			isa = PBXGroup;
-			children = (
-				E3DCA1E72DB5347D00893221 /* ToDoListUITests.swift */,
-				E3DCA1E92DB5347D00893221 /* ToDoListUITestsLaunchTests.swift */,
-			);
-			path = ToDoListUITests;
-			sourceTree = "<group>";
-		};
-		E3DCA1F62DB53ACB00893221 /* App */ = {
+		E3DCA1F62DB53ACB00893221 /* ToDoListApp */ = {
 			isa = PBXGroup;
 			children = (
 				E3DCA1C32DB5347900893221 /* AppDelegate.swift */,
 				E3DCA1C52DB5347900893221 /* SceneDelegate.swift */,
-				E3DCA1C72DB5347900893221 /* ViewController.swift */,
 			);
-			path = App;
+			path = ToDoListApp;
 			sourceTree = "<group>";
 		};
-		E3DCA1F72DB53AD500893221 /* Core */ = {
+		E3DCA1F72DB53AD500893221 /* ToDoListCoreData */ = {
 			isa = PBXGroup;
 			children = (
 				E3DCA2072DB5415800893221 /* CoreDataManager.swift */,
 			);
-			path = Core;
+			path = ToDoListCoreData;
 			sourceTree = "<group>";
 		};
-		E3DCA1F82DB53ADF00893221 /* Models */ = {
+		E3DCA1F82DB53ADF00893221 /* ToDoListModels */ = {
 			isa = PBXGroup;
 			children = (
 				E3DCA2032DB540A200893221 /* TaskEntity+CoreDataClass.swift */,
@@ -169,76 +184,113 @@
 				E3DCA2092DB5444700893221 /* Task.swift */,
 				E3DCA20B2DB544EC00893221 /* TaskMapper.swift */,
 			);
-			path = Models;
+			path = ToDoListModels;
 			sourceTree = "<group>";
 		};
-		E3DCA1F92DB53AE900893221 /* Network */ = {
+		E3DCA1F92DB53AE900893221 /* ToDoListNetwork */ = {
 			isa = PBXGroup;
 			children = (
 				E3DCA20D2DB546EE00893221 /* NetworkService.swift */,
 			);
-			path = Network;
+			path = ToDoListNetwork;
 			sourceTree = "<group>";
 		};
-		E3DCA1FA2DB53AF600893221 /* Repositories */ = {
+		E3DCA1FA2DB53AF600893221 /* ToDoListRepositories */ = {
 			isa = PBXGroup;
 			children = (
 				E3DCA20F2DB5495300893221 /* TaskRepository.swift */,
 			);
-			path = Repositories;
+			path = ToDoListRepositories;
 			sourceTree = "<group>";
 		};
-		E3DCA1FB2DB53B0500893221 /* Scenes */ = {
+		E3DCA1FB2DB53B0500893221 /* ToDoListScenes */ = {
 			isa = PBXGroup;
 			children = (
 				E3DCA1FE2DB53B1F00893221 /* TaskCreate */,
-				E3DCA1FD2DB53B1400893221 /* TaskDetail */,
 				E3DCA1FC2DB53B0C00893221 /* TaskList */,
 			);
-			path = Scenes;
+			path = ToDoListScenes;
 			sourceTree = "<group>";
 		};
 		E3DCA1FC2DB53B0C00893221 /* TaskList */ = {
 			isa = PBXGroup;
 			children = (
+				E3DCA1C72DB5347900893221 /* TaskListVC.swift */,
+				E3DCA2112DB62B3400893221 /* TaskCell.swift */,
+				E3DCA2182DB6D3C500893221 /* TaskListBottomBar.swift */,
+				E3DCA22C2DB912DA00893221 /* SpeechManager.swift */,
 			);
 			path = TaskList;
-			sourceTree = "<group>";
-		};
-		E3DCA1FD2DB53B1400893221 /* TaskDetail */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TaskDetail;
 			sourceTree = "<group>";
 		};
 		E3DCA1FE2DB53B1F00893221 /* TaskCreate */ = {
 			isa = PBXGroup;
 			children = (
+				E3DCA2282DB8C86800893221 /* TaskCreateEditVC.swift */,
+				E3DCA22A2DB8F72A00893221 /* TaskDetailTextView.swift */,
 			);
 			path = TaskCreate;
 			sourceTree = "<group>";
 		};
-		E3DCA1FF2DB53B2700893221 /* Extensions */ = {
+		E3DCA2012DB53B6400893221 /* ToDoListResources */ = {
 			isa = PBXGroup;
 			children = (
+				E3DCA2132DB6381D00893221 /* Resources */,
+				E3DCA2142DB6383200893221 /* Icons.swift */,
+				E3DCA2242DB7F21400893221 /* Strings.swift */,
 			);
-			path = Extensions;
+			path = ToDoListResources;
 			sourceTree = "<group>";
 		};
-		E3DCA2002DB53B3200893221 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		E3DCA2012DB53B6400893221 /* Resources */ = {
+		E3DCA2132DB6381D00893221 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				E3DCA1CF2DB5347D00893221 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E3DCA2432DBA40B600893221 /* ToDoListModels */ = {
+			isa = PBXGroup;
+			children = (
+				E3DCA25F2DBA514600893221 /* TaskModelTests.swift */,
+			);
+			path = ToDoListModels;
+			sourceTree = "<group>";
+		};
+		E3DCA2442DBA40C900893221 /* ToDoListCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				E3DCA2612DBA516600893221 /* MockCoreDataManager.swift */,
+				E3DCA2632DBA51AB00893221 /* CoreDataManagerTests.swift */,
+			);
+			path = ToDoListCoreData;
+			sourceTree = "<group>";
+		};
+		E3DCA2452DBA40D100893221 /* ToDoListRepository */ = {
+			isa = PBXGroup;
+			children = (
+				E3DCA2652DBA51E600893221 /* TaskRepositoryTests.swift */,
+			);
+			path = ToDoListRepository;
+			sourceTree = "<group>";
+		};
+		E3DCA2462DBA40E100893221 /* ToDoListNetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				E3DCA25D2DBA4AC600893221 /* MockNetworkService.swift */,
+				E3DCA2672DBA522A00893221 /* NetworkServiceTests.swift */,
+			);
+			path = ToDoListNetworkService;
+			sourceTree = "<group>";
+		};
+		E3DCA25A2DBA487400893221 /* ToDoListUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E3DCA2582DBA487400893221 /* ToDoListUITests.swift */,
+				E3DCA2592DBA487400893221 /* ToDoListUITestsLaunchTests.swift */,
+			);
+			path = ToDoListUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +364,7 @@
 					};
 					E3DCA1D82DB5347D00893221 = {
 						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
 						TestTargetID = E3DCA1BF2DB5347900893221;
 					};
 					E3DCA1E22DB5347D00893221 = {
@@ -370,13 +423,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3DCA2622DBA516600893221 /* MockCoreDataManager.swift in Sources */,
+				E3DCA2152DB6383200893221 /* Icons.swift in Sources */,
 				E3DCA20E2DB546EE00893221 /* NetworkService.swift in Sources */,
+				E3DCA2252DB7F21400893221 /* Strings.swift in Sources */,
 				E3DCA20A2DB5444700893221 /* Task.swift in Sources */,
-				E3DCA1C82DB5347900893221 /* ViewController.swift in Sources */,
+				E3DCA1C82DB5347900893221 /* TaskListVC.swift in Sources */,
 				E3DCA20C2DB544EC00893221 /* TaskMapper.swift in Sources */,
+				E3DCA2122DB62B3400893221 /* TaskCell.swift in Sources */,
 				E3DCA2102DB5495300893221 /* TaskRepository.swift in Sources */,
+				E3DCA22B2DB8F72A00893221 /* TaskDetailTextView.swift in Sources */,
 				E3DCA2052DB540A200893221 /* TaskEntity+CoreDataClass.swift in Sources */,
+				E3DCA2292DB8C86800893221 /* TaskCreateEditVC.swift in Sources */,
+				E3DCA2192DB6D3C500893221 /* TaskListBottomBar.swift in Sources */,
 				E3DCA2062DB540A200893221 /* TaskEntity+CoreDataProperties.swift in Sources */,
+				E3DCA22D2DB912DA00893221 /* SpeechManager.swift in Sources */,
 				E3DCA1C42DB5347900893221 /* AppDelegate.swift in Sources */,
 				E3DCA1C62DB5347900893221 /* SceneDelegate.swift in Sources */,
 				E3DCA2082DB5415800893221 /* CoreDataManager.swift in Sources */,
@@ -388,7 +449,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3DCA1DE2DB5347D00893221 /* ToDoListTests.swift in Sources */,
+				E3DCA2662DBA51E600893221 /* TaskRepositoryTests.swift in Sources */,
+				E3DCA25E2DBA4AC600893221 /* MockNetworkService.swift in Sources */,
+				E3DCA2642DBA51AB00893221 /* CoreDataManagerTests.swift in Sources */,
+				E3DCA2682DBA522A00893221 /* NetworkServiceTests.swift in Sources */,
+				E3DCA2602DBA514600893221 /* TaskModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,8 +461,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3DCA1EA2DB5347D00893221 /* ToDoListUITestsLaunchTests.swift in Sources */,
-				E3DCA1E82DB5347D00893221 /* ToDoListUITests.swift in Sources */,
+				E3DCA25B2DBA487400893221 /* ToDoListUITests.swift in Sources */,
+				E3DCA25C2DBA487400893221 /* ToDoListUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,9 +611,10 @@
 				DEVELOPMENT_TEAM = CVK7FA2J9G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToDoList/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Для голосового ввода";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Для голосового поиска задач";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -575,9 +641,10 @@
 				DEVELOPMENT_TEAM = CVK7FA2J9G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToDoList/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Для голосового ввода";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Для голосового поиска задач";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -599,6 +666,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CVK7FA2J9G;
@@ -608,6 +676,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.danila.ToDoListTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToDoList.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ToDoList";
@@ -619,6 +688,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CVK7FA2J9G;
