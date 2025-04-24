@@ -24,16 +24,10 @@ final class MockCoreDataManager: ICoreDataManager {
     }
 
     func delete(_ task: Task, completion: @escaping () -> Void) {
-        if let index = createdTasks.firstIndex(where: { $0.id == task.id }) {
-            createdTasks.remove(at: index)
-        }
         completion()
     }
 
     func update(_ task: Task, completion: @escaping () -> Void) {
-        if let index = createdTasks.firstIndex(where: { $0.id == task.id }) {
-            createdTasks[index] = task
-        }
         completion()
     }
 
