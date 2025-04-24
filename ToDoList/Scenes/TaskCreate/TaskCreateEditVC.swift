@@ -7,10 +7,14 @@
 
 import UIKit
 
+protocol TaskCreateEditVCDeps {
+    var coreDataManager: ICoreDataManager { get }
+    var dispatchQueueWrapper: IDispatchQueueWrapper { get }
+}
+
 // MARK: - TaskCreateEditDelegate
 
 protocol TaskCreateEditDelegate: AnyObject {
-
     func taskDidCreateOrUpdate()
 }
 
@@ -18,14 +22,14 @@ protocol TaskCreateEditDelegate: AnyObject {
 
 final class TaskCreateEditVC: UIViewController {
 
-    // MARK: - Public Properties
-
-    weak var delegate: TaskCreateEditDelegate?
-
     // MARK: - Constructors
 
-    init(taskToEdit: Task? = nil) {
+    init(taskToEdit: Task? = nil, delegate: TaskCreateEditDelegate? = nil, coreDataManager: ICoreDataManager, dispatchQueueWrapper: IDispatchQueueWrapper) {
         self.taskToEdit = taskToEdit
+        self.delegate = delegate
+        self.coreDataManager = coreDataManager
+        self.dispatchQueueWrapper = dispatchQueueWrapper
+
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -51,6 +55,11 @@ final class TaskCreateEditVC: UIViewController {
     }
 
     // MARK: - Private Properties
+
+    private weak var delegate: TaskCreateEditDelegate?
+
+    private let coreDataManager: ICoreDataManager
+    private let dispatchQueueWrapper: IDispatchQueueWrapper
 
     private let titleTextView = TaskDetailTextView()
     private let descriptionTextView = TaskDetailTextView()
@@ -153,9 +162,9 @@ private extension TaskCreateEditVC {
         )
 
         if taskToEdit != nil {
-            CoreDataManager.shared.update(newTask)
+            coreDataManager.update(newTask) {}
         } else {
-            CoreDataManager.shared.create(newTask)
+            coreDataManager.create(newTask) {}
         }
 
         delegate?.taskDidCreateOrUpdate()
