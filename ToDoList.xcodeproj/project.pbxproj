@@ -116,8 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				E3DCA1C22DB5347900893221 /* ToDoList */,
-				E3DCA1DC2DB5347D00893221 /* ToDoListTests */,
-				E3DCA25A2DBA487400893221 /* ToDoListUITests */,
 				E3DCA1C12DB5347900893221 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -135,6 +133,8 @@
 		E3DCA1C22DB5347900893221 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				E3DCA25A2DBA487400893221 /* UITests */,
+				E3DCA1DC2DB5347D00893221 /* Tests */,
 				E3DCA1D42DB5347D00893221 /* Info.plist */,
 				E3DCA1CC2DB5347900893221 /* ToDoList.xcdatamodeld */,
 				E3DCA2012DB53B6400893221 /* Resources */,
@@ -148,7 +148,7 @@
 			path = ToDoList;
 			sourceTree = "<group>";
 		};
-		E3DCA1DC2DB5347D00893221 /* ToDoListTests */ = {
+		E3DCA1DC2DB5347D00893221 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				E3DCA2462DBA40E100893221 /* NetworkService */,
@@ -156,7 +156,7 @@
 				E3DCA2442DBA40C900893221 /* CoreData */,
 				E3DCA2432DBA40B600893221 /* Models */,
 			);
-			path = ToDoListTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		E3DCA1F62DB53ACB00893221 /* App */ = {
@@ -284,13 +284,13 @@
 			path = NetworkService;
 			sourceTree = "<group>";
 		};
-		E3DCA25A2DBA487400893221 /* ToDoListUITests */ = {
+		E3DCA25A2DBA487400893221 /* UITests */ = {
 			isa = PBXGroup;
 			children = (
 				E3DCA2582DBA487400893221 /* ToDoListUITests.swift */,
 				E3DCA2592DBA487400893221 /* ToDoListUITestsLaunchTests.swift */,
 			);
-			path = ToDoListUITests;
+			path = UITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
