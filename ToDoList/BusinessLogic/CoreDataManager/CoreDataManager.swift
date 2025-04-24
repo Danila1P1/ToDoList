@@ -16,19 +16,27 @@ protocol ICoreDataManager: AnyObject {
 }
 
 final class CoreDataManager: ICoreDataManager {
+    
+    // MARK: - Constructors
 
-    // MARK: - CoreData Stack
+    init(persistentContainer: NSPersistentContainer) {
+        self.persistentContainer = persistentContainer
+        persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
+    }
 
-    private lazy var persistentContainer: NSPersistentContainer = {
+    convenience init() {
         let container = NSPersistentContainer(name: "ToDoList")
         container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("Ошибка инициализации CoreData: \(error)")
             }
         }
-        return container
-    }()
+        self.init(persistentContainer: container)
+    }
 
+    // MARK: - Private Properties
+
+    private let persistentContainer: NSPersistentContainer
     private var context: NSManagedObjectContext {
         return persistentContainer.viewContext
     }

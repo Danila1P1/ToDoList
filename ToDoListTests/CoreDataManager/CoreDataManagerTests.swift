@@ -6,82 +6,118 @@
 //
 
 import XCTest
-@testable import ToDoList
 import CoreData
+@testable import ToDoList
 
 final class CoreDataManagerTests: XCTestCase {
-    
-    var mockCoreDataManager: MockCoreDataManager!
-    var mockContext: NSManagedObjectContext!
-    
+
+    var sut: CoreDataManager!
+    var context: NSManagedObjectContext!
+
     override func setUp() {
         super.setUp()
-        
-        mockCoreDataManager = MockCoreDataManager()
-        mockContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+
+        let container = NSPersistentContainer(name: "ToDoList")
+        let description = NSPersistentStoreDescription()
+        description.type = NSInMemoryStoreType
+        container.persistentStoreDescriptions = [description]
+
+        let expectation = expectation(description: "PersistentStore loaded")
+        container.loadPersistentStores { _, error in
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1.0)
+
+        sut = CoreDataManager(persistentContainer: container)
     }
-    
+
     override func tearDown() {
-        mockCoreDataManager = nil
-        mockContext = nil
+        sut = nil
         super.tearDown()
     }
-    
-    func testFetchAllTasksShouldReturnCorrectTasks() {
-        let task = Task(id: 1, title: "Test Task", descriptionText: "Description", isCompleted: false, createdAt: Date())
-        mockCoreDataManager.stubbedTasks = [task]
-        
-        let exp = expectation(description: "Fetch all tasks")
-        mockCoreDataManager.fetchAllTasks { tasks in
-            XCTAssertEqual(tasks.count, 1)
-            XCTAssertEqual(tasks.first?.title, "Test Task")
-            exp.fulfill()
+
+    func testCreateTaskAndFetchAllTasksShouldContainCreatedTask() {
+        let task = Task(id: 1, title: "Test", descriptionText: "Description", isCompleted: false, createdAt: Date())
+
+        let exp = expectation(description: "Create and fetch")
+
+        sut.create(task) {
+            self.sut.fetchAllTasks { tasks in
+                XCTAssertEqual(tasks.count, 1)
+                XCTAssertEqual(tasks.first?.title, "Test")
+                XCTAssertEqual(tasks.first?.descriptionText, "Description")
+                exp.fulfill()
+            }
         }
-        
+
         wait(for: [exp], timeout: 1.0)
     }
-    
-    func testCreateShouldAddTaskToCoreData() {
-        let task = Task(id: 2, title: "Create Task", descriptionText: "", isCompleted: false, createdAt: Date())
-        
-        mockCoreDataManager.create(task) {
-            XCTAssertTrue(self.mockCoreDataManager.createdTasks.contains { $0.id == task.id })
+
+    func testDeleteTaskShouldRemoveFromStorage() {
+        let task = Task(id: 10, title: "To Delete", descriptionText: "temp", isCompleted: false, createdAt: Date())
+        let exp = expectation(description: "Create & delete")
+
+        sut.create(task) {
+            self.sut.delete(task) {
+                self.sut.fetchAllTasks { tasks in
+                    XCTAssertTrue(tasks.isEmpty)
+                    exp.fulfill()
+                }
+            }
         }
+
+        wait(for: [exp], timeout: 1.0)
     }
-    
-    func testDeleteShouldRemoveTaskFromCoreData() {
-        let task = Task(id: 3, title: "Delete Me", descriptionText: "", isCompleted: false, createdAt: Date())
-        mockCoreDataManager.createdTasks.append(task)
-        
-        mockCoreDataManager.delete(task) {
-            XCTAssertFalse(self.mockCoreDataManager.createdTasks.contains { $0.id == task.id })
+
+    func testUpdateTaskShouldModifyEntity() {
+        let original = Task(id: 3, title: "Old", descriptionText: "desc", isCompleted: false, createdAt: Date())
+        var updated = original
+        updated.title = "Updated"
+        updated.isCompleted = true
+
+        let exp = expectation(description: "Create & update")
+
+        sut.create(original) {
+            self.sut.update(updated) {
+                self.sut.fetchAllTasks { tasks in
+                    XCTAssertEqual(tasks.count, 1)
+                    XCTAssertEqual(tasks.first?.title, "Updated")
+                    XCTAssertTrue(tasks.first?.isCompleted ?? false)
+                    exp.fulfill()
+                }
+            }
         }
+
+        wait(for: [exp], timeout: 1.0)
     }
-    
-    func testUpdateShouldUpdateTaskInCoreData() {
-        var task = Task(id: 4, title: "Update Me", descriptionText: "Old Description", isCompleted: false, createdAt: Date())
-        mockCoreDataManager.createdTasks.append(task)
-        
-        task.descriptionText = "Updated Description"
-        
-        mockCoreDataManager.update(task) {
-            XCTAssertEqual(self.mockCoreDataManager.createdTasks.first { $0.id == task.id }?.descriptionText, "Updated Description")
+
+    func testSearchTasksShouldReturnMatchingTasks() {
+        let tasks = [
+            Task(id: 1, title: "Buy milk", descriptionText: "From the store", isCompleted: false, createdAt: Date()),
+            Task(id: 2, title: "Call mom", descriptionText: "Important!", isCompleted: false, createdAt: Date()),
+            Task(id: 3, title: "Read", descriptionText: "Book about CoreData", isCompleted: false, createdAt: Date())
+        ]
+
+        let exp = expectation(description: "Search")
+        let queue = DispatchQueue(label: "TestQueue")
+
+        let group = DispatchGroup()
+        tasks.forEach {
+            group.enter()
+            sut.create($0) {
+                group.leave()
+            }
         }
-    }
-    
-    func testSearchTasksShouldReturnCorrectResults() {
-        let task1 = Task(id: 5, title: "Search Task 1", descriptionText: "Desc 1", isCompleted: false, createdAt: Date())
-        let task2 = Task(id: 6, title: "Search Task 2", descriptionText: "Desc 2", isCompleted: true, createdAt: Date())
-        mockCoreDataManager.stubbedSearchResult = [task1, task2]
-        
-        let exp = expectation(description: "Search tasks")
-        mockCoreDataManager.searchTasks(matching: "Search Task", on: DispatchQueue.main) { tasks in
-            XCTAssertEqual(tasks.count, 2)
-            XCTAssertEqual(tasks.first?.title, "Search Task 1")
-            XCTAssertEqual(tasks.last?.title, "Search Task 2")
-            exp.fulfill()
+
+        group.notify(queue: .main) {
+            self.sut.searchTasks(matching: "milk", on: queue) { result in
+                XCTAssertEqual(result.count, 1)
+                XCTAssertEqual(result.first?.title, "Buy milk")
+                exp.fulfill()
+            }
         }
-        
+
         wait(for: [exp], timeout: 1.0)
     }
 }
