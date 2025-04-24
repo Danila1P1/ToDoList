@@ -7,16 +7,16 @@
 
 import CoreData
 
-final class CoreDataManager {
+class CoreDataManager {
 
     // MARK: - Singleton
 
     static let shared = CoreDataManager()
-    private init() {}
+    init() {}
 
     // MARK: - CoreData Stack
 
-    private lazy var persistentContainer: NSPersistentContainer = {
+    private(set) lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "ToDoList")
         container.loadPersistentStores { _, error in
             if let error = error {
@@ -26,7 +26,7 @@ final class CoreDataManager {
         return container
     }()
 
-    private var context: NSManagedObjectContext {
+     var context: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
 
@@ -46,7 +46,21 @@ final class CoreDataManager {
 
     func create(_ task: Task) {
         let entity = TaskEntity(context: context)
-        entity.configure(with: task)
+        var newTask = task
+        
+
+        if newTask.id == 0 {
+            let request: NSFetchRequest<TaskEntity> = TaskEntity.fetchRequest()
+            request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
+            
+            if let request = try? context.fetch(request), let lastEntity = request.first {
+                newTask.id = lastEntity.id + 1
+            } else {
+                newTask.id = 1
+            }
+        }
+
+        entity.configure(with: newTask)
         saveContext()
     }
 
@@ -67,6 +81,24 @@ final class CoreDataManager {
         if let result = try? context.fetch(request), let entity = result.first {
             entity.configure(with: task)
             saveContext()
+        }
+    }
+
+    func searchTasks(matching text: String) -> [Task] {
+        let request: NSFetchRequest<TaskEntity> = TaskEntity.fetchRequest()
+
+        let predicate = NSPredicate(
+            format: "title CONTAINS[cd] %@ OR descriptionText CONTAINS[cd] %@",
+            text, text
+        )
+        request.predicate = predicate
+
+        do {
+            let result = try context.fetch(request)
+            return result.map { Task(entity: $0) }
+        } catch {
+            print("Ошибка поиска в CoreData: \(error)")
+            return []
         }
     }
 }

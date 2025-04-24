@@ -7,22 +7,28 @@
 
 import Foundation
 
-final class NetworkService {
-    
+class NetworkService {
+
     // MARK: - Public Methods
 
     func fetchRemoteTasks(completion: @escaping ([Task]) -> Void) {
         guard let url = URL(string: "https://dummyjson.com/todos") else { return }
 
-        URLSession.shared.dataTask(with: url) { data, _, _ in
-            guard let data = data else { return }
+        DispatchQueue.global(qos: .background).async {
+            guard let data = try? Data(contentsOf: url) else {
+                DispatchQueue.main.async {
+                    completion([])
+                }
+                return
+            }
 
             let decoded = try? JSONDecoder().decode(TaskResponse.self, from: data)
             let tasks = decoded?.todos.map { Task(id: Int64($0.id), title: $0.todo, descriptionText: "", isCompleted: $0.completed, createdAt: Date()) } ?? []
+
             DispatchQueue.main.async {
                 completion(tasks)
             }
-        }.resume()
+        }
     }
 }
 
@@ -33,7 +39,7 @@ private struct TaskResponse: Decodable {
 }
 
 private struct RemoteTask: Decodable {
-    let id: Int
+    let id: Int64
     let todo: String
     let completed: Bool
 }

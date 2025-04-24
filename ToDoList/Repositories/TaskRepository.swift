@@ -25,4 +25,14 @@ final class TaskRepository {
             completion(coreTasks)
         }
     }
+
+    func searchTasks(text: String, completion: @escaping ([Task]) -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            let result = CoreDataManager.shared.searchTasks(matching: text)
+
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
 }
