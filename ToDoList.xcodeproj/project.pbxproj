@@ -26,14 +26,14 @@
 		E3DCA2292DB8C86800893221 /* TaskCreateEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2282DB8C86800893221 /* TaskCreateEditVC.swift */; };
 		E3DCA22B2DB8F72A00893221 /* TaskDetailTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA22A2DB8F72A00893221 /* TaskDetailTextView.swift */; };
 		E3DCA22D2DB912DA00893221 /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA22C2DB912DA00893221 /* SpeechManager.swift */; };
-		E3DCA24B2DBA420600893221 /* TaskModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA24A2DBA420600893221 /* TaskModelTests.swift */; };
-		E3DCA24F2DBA436700893221 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA24E2DBA436700893221 /* NetworkServiceTests.swift */; };
-		E3DCA2512DBA438E00893221 /* TaskRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2502DBA438E00893221 /* TaskRepositoryTests.swift */; };
-		E3DCA2532DBA43AA00893221 /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2522DBA43AA00893221 /* CoreDataManagerTests.swift */; };
-		E3DCA2552DBA452F00893221 /* MockCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2542DBA452F00893221 /* MockCoreDataManager.swift */; };
 		E3DCA25B2DBA487400893221 /* ToDoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2582DBA487400893221 /* ToDoListUITests.swift */; };
 		E3DCA25C2DBA487400893221 /* ToDoListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2592DBA487400893221 /* ToDoListUITestsLaunchTests.swift */; };
 		E3DCA25E2DBA4AC600893221 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA25D2DBA4AC600893221 /* MockNetworkService.swift */; };
+		E3DCA2602DBA514600893221 /* TaskModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA25F2DBA514600893221 /* TaskModelTests.swift */; };
+		E3DCA2622DBA516600893221 /* MockCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2612DBA516600893221 /* MockCoreDataManager.swift */; };
+		E3DCA2642DBA51AB00893221 /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2632DBA51AB00893221 /* CoreDataManagerTests.swift */; };
+		E3DCA2662DBA51E600893221 /* TaskRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2652DBA51E600893221 /* TaskRepositoryTests.swift */; };
+		E3DCA2682DBA522A00893221 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCA2672DBA522A00893221 /* NetworkServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,14 +77,14 @@
 		E3DCA2282DB8C86800893221 /* TaskCreateEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCreateEditVC.swift; sourceTree = "<group>"; };
 		E3DCA22A2DB8F72A00893221 /* TaskDetailTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailTextView.swift; sourceTree = "<group>"; };
 		E3DCA22C2DB912DA00893221 /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
-		E3DCA24A2DBA420600893221 /* TaskModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskModelTests.swift; path = ../../../../Documents/TaskModelTests.swift; sourceTree = "<group>"; };
-		E3DCA24E2DBA436700893221 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkServiceTests.swift; path = ../../../../Documents/NetworkServiceTests.swift; sourceTree = "<group>"; };
-		E3DCA2502DBA438E00893221 /* TaskRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskRepositoryTests.swift; path = ../../../../Documents/TaskRepositoryTests.swift; sourceTree = "<group>"; };
-		E3DCA2522DBA43AA00893221 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreDataManagerTests.swift; path = ../../../../Documents/CoreDataManagerTests.swift; sourceTree = "<group>"; };
-		E3DCA2542DBA452F00893221 /* MockCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockCoreDataManager.swift; path = ../../../../Documents/MockCoreDataManager.swift; sourceTree = "<group>"; };
 		E3DCA2582DBA487400893221 /* ToDoListUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListUITests.swift; sourceTree = "<group>"; };
 		E3DCA2592DBA487400893221 /* ToDoListUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E3DCA25D2DBA4AC600893221 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		E3DCA25F2DBA514600893221 /* TaskModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModelTests.swift; sourceTree = "<group>"; };
+		E3DCA2612DBA516600893221 /* MockCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataManager.swift; sourceTree = "<group>"; };
+		E3DCA2632DBA51AB00893221 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
+		E3DCA2652DBA51E600893221 /* TaskRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepositoryTests.swift; sourceTree = "<group>"; };
+		E3DCA2672DBA522A00893221 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +115,8 @@
 		E3DCA1B72DB5347900893221 = {
 			isa = PBXGroup;
 			children = (
+				E3DCA25A2DBA487400893221 /* ToDoListUITests */,
+				E3DCA1DC2DB5347D00893221 /* ToDoListTests */,
 				E3DCA1C22DB5347900893221 /* ToDoList */,
 				E3DCA1C12DB5347900893221 /* Products */,
 			);
@@ -133,8 +135,6 @@
 		E3DCA1C22DB5347900893221 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
-				E3DCA25A2DBA487400893221 /* ToDoListUITests */,
-				E3DCA1DC2DB5347D00893221 /* ToDoListTests */,
 				E3DCA1D42DB5347D00893221 /* Info.plist */,
 				E3DCA1CC2DB5347900893221 /* ToDoList.xcdatamodeld */,
 				E3DCA2012DB53B6400893221 /* ToDoListResources */,
@@ -253,7 +253,7 @@
 		E3DCA2432DBA40B600893221 /* ToDoListModels */ = {
 			isa = PBXGroup;
 			children = (
-				E3DCA24A2DBA420600893221 /* TaskModelTests.swift */,
+				E3DCA25F2DBA514600893221 /* TaskModelTests.swift */,
 			);
 			path = ToDoListModels;
 			sourceTree = "<group>";
@@ -261,8 +261,8 @@
 		E3DCA2442DBA40C900893221 /* ToDoListCoreData */ = {
 			isa = PBXGroup;
 			children = (
-				E3DCA2522DBA43AA00893221 /* CoreDataManagerTests.swift */,
-				E3DCA2542DBA452F00893221 /* MockCoreDataManager.swift */,
+				E3DCA2612DBA516600893221 /* MockCoreDataManager.swift */,
+				E3DCA2632DBA51AB00893221 /* CoreDataManagerTests.swift */,
 			);
 			path = ToDoListCoreData;
 			sourceTree = "<group>";
@@ -270,7 +270,7 @@
 		E3DCA2452DBA40D100893221 /* ToDoListRepository */ = {
 			isa = PBXGroup;
 			children = (
-				E3DCA2502DBA438E00893221 /* TaskRepositoryTests.swift */,
+				E3DCA2652DBA51E600893221 /* TaskRepositoryTests.swift */,
 			);
 			path = ToDoListRepository;
 			sourceTree = "<group>";
@@ -278,8 +278,8 @@
 		E3DCA2462DBA40E100893221 /* ToDoListNetworkService */ = {
 			isa = PBXGroup;
 			children = (
-				E3DCA24E2DBA436700893221 /* NetworkServiceTests.swift */,
 				E3DCA25D2DBA4AC600893221 /* MockNetworkService.swift */,
+				E3DCA2672DBA522A00893221 /* NetworkServiceTests.swift */,
 			);
 			path = ToDoListNetworkService;
 			sourceTree = "<group>";
@@ -423,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3DCA2622DBA516600893221 /* MockCoreDataManager.swift in Sources */,
 				E3DCA2152DB6383200893221 /* Icons.swift in Sources */,
 				E3DCA20E2DB546EE00893221 /* NetworkService.swift in Sources */,
 				E3DCA2252DB7F21400893221 /* Strings.swift in Sources */,
@@ -448,12 +449,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3DCA2662DBA51E600893221 /* TaskRepositoryTests.swift in Sources */,
 				E3DCA25E2DBA4AC600893221 /* MockNetworkService.swift in Sources */,
-				E3DCA2552DBA452F00893221 /* MockCoreDataManager.swift in Sources */,
-				E3DCA2512DBA438E00893221 /* TaskRepositoryTests.swift in Sources */,
-				E3DCA24F2DBA436700893221 /* NetworkServiceTests.swift in Sources */,
-				E3DCA2532DBA43AA00893221 /* CoreDataManagerTests.swift in Sources */,
-				E3DCA24B2DBA420600893221 /* TaskModelTests.swift in Sources */,
+				E3DCA2642DBA51AB00893221 /* CoreDataManagerTests.swift in Sources */,
+				E3DCA2682DBA522A00893221 /* NetworkServiceTests.swift in Sources */,
+				E3DCA2602DBA514600893221 /* TaskModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
